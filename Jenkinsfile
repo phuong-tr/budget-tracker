@@ -7,7 +7,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building Docker image...'
-                sh 'sudo docker build -t budget-tracker .'
+                sh 'docker build -t budget-tracker .'
             }
         }
         stage('Test') {
@@ -31,7 +31,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
-                sh 'sudo docker run -d -p 5000:5000 budget-tracker'
+                sh 'docker run -d -p 5000:5000 budget-tracker'
             }
         }
         stage('Release') {
